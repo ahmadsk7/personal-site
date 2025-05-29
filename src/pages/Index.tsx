@@ -50,8 +50,8 @@ const Index = () => {
   return (
     <div className={`min-h-screen transition-colors duration-300 font-inter ${
       isDark 
-        ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100' 
-        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900'
+        ? 'bg-gradient-to-br from-purple-900 via-blue-900 to-teal-800 text-gray-100' 
+        : 'bg-gradient-to-br from-purple-100 via-blue-100 to-teal-50 text-gray-900'
     }`}>
       {/* Theme Toggle */}
       <div className="fixed top-6 right-6 z-10">
@@ -59,8 +59,8 @@ const Index = () => {
           onClick={toggleTheme}
           className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
             isDark 
-              ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400' 
-              : 'bg-white hover:bg-gray-100 text-gray-700 shadow-lg'
+              ? 'bg-gray-800/50 hover:bg-gray-700/50 text-yellow-400 backdrop-blur-sm' 
+              : 'bg-white/50 hover:bg-gray-100/50 text-gray-700 shadow-lg backdrop-blur-sm'
           }`}
         >
           {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -71,70 +71,82 @@ const Index = () => {
         <div className="flex flex-col items-center space-y-12">
           {/* Profile Section */}
           <div className="flex flex-col items-center space-y-8">
-            {/* Profile Picture */}
-            <div className="relative">
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 p-1">
-                <img 
-                  src="/lovable-uploads/251a1875-33e9-4396-be4d-ecc791aebfe9.png"
-                  alt="ahmad sheikh-khalil"
-                  className="w-full h-full rounded-full object-cover"
-                />
+            {/* Header with Profile Picture, Name and Social Icons */}
+            <div className="flex items-center space-x-8">
+              {/* Profile Picture */}
+              <div className="relative">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 p-1">
+                  <img 
+                    src="/lovable-uploads/251a1875-33e9-4396-be4d-ecc791aebfe9.png"
+                    alt="ahmad sheikh-khalil"
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Name and Social Icons */}
+              <div className="flex flex-col space-y-4">
+                <div className="flex items-center space-x-6">
+                  <h1 className="text-3xl md:text-5xl font-light tracking-tight">
+                    ahmad sheikh-khalil
+                  </h1>
+                  
+                  {/* Social Links */}
+                  <div className="flex space-x-3">
+                    <a
+                      href="https://github.com/ahmadsk7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                        isDark 
+                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white backdrop-blur-sm' 
+                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-gray-900 shadow-md hover:shadow-lg backdrop-blur-sm'
+                      }`}
+                    >
+                      <Github size={18} />
+                    </a>
+                    <a
+                      href="https://linkedin.com/in/ahmad-sheikh-khalil"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                        isDark 
+                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
+                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
+                      }`}
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                    <button
+                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                        isDark 
+                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-green-400 backdrop-blur-sm' 
+                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-green-600 shadow-md hover:shadow-lg backdrop-blur-sm'
+                      }`}
+                    >
+                      <FileText size={18} />
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Pronunciation */}
+                <div className="flex flex-col space-y-1">
+                  <p className={`text-sm italic ${
+                    isDark ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    /ˈɑːməd ʃeɪk kəˈliːl/
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Header with Name and Social Icons */}
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex items-center space-x-6">
-                <h1 className="text-4xl md:text-6xl font-light tracking-tight">
-                  ahmad sheikh-khalil
-                </h1>
-                
-                {/* Social Links */}
-                <div className="flex space-x-3">
-                  <a
-                    href="https://github.com/ahmadsk7"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white' 
-                        : 'bg-white hover:bg-gray-50 text-gray-600 hover:text-gray-900 shadow-md hover:shadow-lg'
-                    }`}
-                  >
-                    <Github size={18} />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/ahmad-sheikh-khalil"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-blue-400' 
-                        : 'bg-white hover:bg-gray-50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg'
-                    }`}
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <button
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-green-400' 
-                        : 'bg-white hover:bg-gray-50 text-gray-600 hover:text-green-600 shadow-md hover:shadow-lg'
-                    }`}
-                  >
-                    <FileText size={18} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="text-center space-y-2">
-                <p className={`text-lg font-medium ${
-                  isDark ? 'text-orange-400' : 'text-orange-600'
-                }`}>
-                  cs @ umich
-                </p>
-                <div className="h-1 w-24 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 mx-auto rounded-full"></div>
-              </div>
+            <div className="text-center space-y-2">
+              <p className={`text-lg font-medium ${
+                isDark ? 'text-orange-400' : 'text-orange-600'
+              }`}>
+                cs @ umich
+              </p>
+              <div className="h-1 w-24 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 mx-auto rounded-full"></div>
             </div>
 
             <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-center ${
