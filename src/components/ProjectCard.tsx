@@ -1,10 +1,10 @@
-
 interface Project {
   title: string;
   description: string;
   tech: string[];
   status?: string;
   link?: string;
+  badge?: string;
 }
 
 interface ProjectCardProps {
@@ -34,7 +34,16 @@ const ProjectCard = ({ project, isDark, isCurrent }: ProjectCardProps) => {
           <h4 className="text-lg font-medium leading-tight">
             {project.title}
           </h4>
-          {isCurrent && project.status && (
+          {project.badge && (
+            <span className={`text-xs px-2 py-1 rounded-full font-semibold ${
+              isDark
+                ? 'bg-purple-900 text-purple-300'
+                : 'bg-purple-100 text-purple-700'
+            }`}>
+              {project.badge}
+            </span>
+          )}
+          {isCurrent && project.status && !project.badge && (
             <span className={`text-xs px-2 py-1 rounded-full ${
               isDark
                 ? 'bg-orange-900 text-orange-300'

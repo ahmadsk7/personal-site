@@ -1,7 +1,7 @@
-
 import { useState } from "react";
-import { Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
+import { Github, Linkedin, FileText, Sun, Moon, Twitter } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
+import Terminal from "../components/Terminal";
 
 const Index = () => {
   const [isDark, setIsDark] = useState(true);
@@ -13,57 +13,58 @@ const Index = () => {
 
   const currentProjects = [
     {
-      title: "ai-powered analytics dashboard",
-      description: "building a real-time analytics platform with machine learning insights for data visualization",
-      tech: ["react", "python", "tensorflow", "postgresql"],
+      title: "hooked",
+      description: "building an AI-powered video editing assistant that helps creators find their best moments, polish audio, and generate impactful captions",
+      tech: ["next.js", "typescript", "supabase", "ffmpeg", "whisper", "tailwindcss"],
       status: "in progress"
     },
     {
-      title: "decentralized task manager",
-      description: "creating a blockchain-based task management system with smart contracts",
-      tech: ["solidity", "web3", "react", "metamask"],
-      status: "design phase"
+      title: "verdicto",
+      description: "working on a platform for exploring and analyzing U.S. civil litigation data with smart case summaries, docket timelines, and legal analytics",
+      tech: ["next.js", "python", "whisper", "postgresql", "supabase", "openai", "chart.js"],
+      status: "in progress"
     }
   ];
 
   const personalProjects = [
     {
-      title: "mood-based music player",
-      description: "spotify integration that curates playlists based on facial emotion recognition",
-      tech: ["react native", "tensorflow.js", "spotify api"],
-      link: "https://github.com/ahmadsk7/mood-music"
+      title: "olowrapped",
+      description: "spotify wrapped for restaurants — created an OloLLM and used snowflake data to generate personalized guest summaries. provided as a feature to thousands of restaurants as part of olo's engage suite",
+      tech: ["go", "templ", "html", "css", "sql", "snowflake", "docker"],
+      link: "https://drive.google.com/file/d/1Y3fbda_2aLD8C_bt-sx4_Vo4BTq7lFuc/view?usp=sharing"
     },
     {
-      title: "minimal habit tracker",
-      description: "clean, distraction-free habit tracking with beautiful data visualizations",
-      tech: ["react", "d3.js", "local storage"],
-      link: "https://github.com/ahmadsk7/habit-tracker"
-    },
+      title: "ansar",
+      description: "community app connecting refugees with nearby volunteers for help like document translation or airport pickups — includes local opportunities and chat",
+      tech: ["react native", "firebase", "typescript", "expo", "google maps api"],
+      link: "https://drive.google.com/file/d/1hvrYtphF6IvF9BoKZ5J0fqOKE3HocD6a/view?usp=sharing",
+      badge: "1st place at Tech for Social Good Hackathon"
+    }, 
     {
-      title: "weather poetry generator",
-      description: "generates haikus based on current weather conditions using openai api",
-      tech: ["node.js", "openai api", "weather api"],
-      link: "https://github.com/ahmadsk7/weather-poetry"
+      title: "rentscoper",
+      description: "mobile app that scrapes Ann Arbor rental listings and visualizes price trends with interactive charts and historical data tracking",
+      tech: ["react native", "expo", "typescript", "victory", "python", "beautifulsoup", "asyncstorage", "json"],
+      link: "https://github.com/ahmadsk7/RentScoper"
     }
   ];
 
   return (
     <div className={`min-h-screen transition-colors duration-300 font-bold ${
       isDark 
-        ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-gray-100' 
-        : 'bg-gradient-to-br from-blue-200 via-indigo-200 to-slate-300 text-gray-900'
+        ? "text-gray-100" 
+        : "text-gray-900"
     }`}>
       {/* Theme Toggle */}
       <div className="fixed top-6 right-6 z-10">
         <button
           onClick={toggleTheme}
-          className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
+          className={`p-4 rounded-full transition-all duration-300 hover:scale-110 ${
             isDark 
               ? 'bg-gray-800/50 hover:bg-gray-700/50 text-yellow-400 backdrop-blur-sm' 
               : 'bg-white/50 hover:bg-gray-100/50 text-gray-700 shadow-lg backdrop-blur-sm'
           }`}
         >
-          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          {isDark ? <Sun size={24} /> : <Moon size={24} />}
         </button>
       </div>
 
@@ -84,79 +85,95 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Name and Social Icons */}
+              {/* Name, Pronunciation, University, and Social Icons */}
               <div className="flex flex-col space-y-4">
-                <div className="flex items-center space-x-6">
-                  <h1 className="text-3xl md:text-5xl font-black tracking-tight">
-                    <span className="underline decoration-blue-400 decoration-2 underline-offset-4">ahmad</span>{" "}
-                    <span className="italic">sheikh-khalil</span>
-                  </h1>
-                  
-                  {/* Social Links */}
-                  <div className="flex space-x-3">
-                    <a
-                      href="https://github.com/ahmadsk7"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                        isDark 
-                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white backdrop-blur-sm' 
-                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-gray-900 shadow-md hover:shadow-lg backdrop-blur-sm'
-                      }`}
-                    >
-                      <Github size={18} />
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/ahmad-sheikh-khalil"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                        isDark 
-                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
-                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
-                      }`}
-                    >
-                      <Linkedin size={18} />
-                    </a>
-                    <button
-                      className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                        isDark 
-                          ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-green-400 backdrop-blur-sm' 
-                          : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-green-600 shadow-md hover:shadow-lg backdrop-blur-sm'
-                      }`}
-                    >
-                      <FileText size={18} />
-                    </button>
-                  </div>
-                </div>
-                
+                <h1 className="text-3xl md:text-5xl font-black tracking-tight">
+                  <span className="underline decoration-blue-400 decoration-2 underline-offset-4">ahmad</span>{" "}
+                  <span className="italic">sheikh-khalil</span>
+                </h1>
+
                 {/* Pronunciation */}
                 <div className="flex flex-col space-y-1">
-                  <p className={`text-sm italic font-medium ${
+                  <p className={`text-base italic font-medium ${
                     isDark ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     /ˈɑːməd ʃeɪk kəˈliːl/
                   </p>
                 </div>
+
+                {/* University Info */}
+                <div className="text-left space-y-2">
+                  <p className={`text-lg font-bold ${
+                    isDark ? 'text-blue-300' : 'text-blue-800'
+                  }`}>
+                    <span className="italic underline decoration-blue-500 decoration-2">cs</span> @ <span className="font-black">umich</span>
+                  </p>
+                </div>
+                
+                {/* Social Links */}
+                <div className="flex space-x-4 mt-2">
+                  <a
+                    href="https://github.com/ahmadsk7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                      isDark 
+                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white backdrop-blur-sm' 
+                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-gray-900 shadow-md hover:shadow-lg backdrop-blur-sm'
+                    }`}
+                  >
+                    <Github size={24} />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/ahmad-sheikh-khalil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                      isDark 
+                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
+                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
+                    }`}
+                  >
+                    <Linkedin size={24} />
+                  </a>
+                  <a
+                    href="https://twitter.com/_ahmadsk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                      isDark 
+                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
+                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
+                    }`}
+                  >
+                    <Twitter size={24} />
+                  </a>
+                  <button
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
+                      isDark 
+                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-green-400 backdrop-blur-sm' 
+                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-green-600 shadow-md hover:shadow-lg backdrop-blur-sm'
+                    }`}
+                  >
+                    <FileText size={24} />
+                  </button>
+                </div>
               </div>
             </div>
 
             <div className="text-center space-y-2">
-              <p className={`text-lg font-bold ${
-                isDark ? 'text-blue-400' : 'text-blue-600'
-              }`}>
-                <span className="italic underline decoration-blue-500 decoration-2">cs</span> @ <span className="font-black">umich</span>
-              </p>
               <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 mx-auto rounded-full"></div>
             </div>
 
             <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-center font-medium ${
               isDark ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              <span className="italic">passionate</span> about building <span className="font-bold underline decoration-blue-400 decoration-2">meaningful digital experiences</span>. 
-              i love creating <span className="font-black">innovative solutions</span> that blend technology with <span className="italic">human-centered design</span>.
+              interested in creating <span className="font-bold underline decoration-blue-400 decoration-2">tech for social impact</span>. i love working on creative, <span className="italic">human-centered</span> projects and sometimes explore ideas through cinematography, editing, and design.
             </p>
           </div>
+
+          {/* Terminal Section */}
+          <Terminal />
 
           {/* Projects Section */}
           <div className="w-full max-w-6xl space-y-12">
@@ -166,7 +183,7 @@ const Index = () => {
               {/* Currently Building */}
               <div className="space-y-6">
                 <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
-                  isDark ? 'text-blue-400 decoration-blue-400' : 'text-blue-600 decoration-blue-600'
+                  isDark ? 'text-blue-300 decoration-blue-300' : 'text-blue-800 decoration-blue-800'
                 }`}>
                   currently building
                 </h3>
@@ -185,7 +202,7 @@ const Index = () => {
               {/* Personal Projects */}
               <div className="space-y-6">
                 <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
-                  isDark ? 'text-indigo-400 decoration-indigo-400' : 'text-indigo-600 decoration-indigo-600'
+                  isDark ? 'text-indigo-300 decoration-indigo-300' : 'text-indigo-800 decoration-indigo-800'
                 }`}>
                   personal projects
                 </h3>
