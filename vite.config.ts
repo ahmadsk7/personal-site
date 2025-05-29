@@ -14,6 +14,17 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        // Ensure proper MIME types
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.js')) {
+            return 'assets/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
   },
   plugins: [
     react(),
