@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
@@ -47,10 +48,10 @@ const Index = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 font-inter ${
+    <div className={`min-h-screen transition-colors duration-300 font-bold ${
       isDark 
-        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-gray-100' 
-        : 'bg-gradient-to-br from-purple-200 via-blue-200 to-teal-200 text-gray-900'
+        ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-gray-100' 
+        : 'bg-gradient-to-br from-blue-200 via-indigo-200 to-slate-300 text-gray-900'
     }`}>
       {/* Theme Toggle */}
       <div className="fixed top-6 right-6 z-10">
@@ -86,8 +87,9 @@ const Index = () => {
               {/* Name and Social Icons */}
               <div className="flex flex-col space-y-4">
                 <div className="flex items-center space-x-6">
-                  <h1 className="text-3xl md:text-5xl font-light tracking-tight">
-                    ahmad sheikh-khalil
+                  <h1 className="text-3xl md:text-5xl font-black tracking-tight">
+                    <span className="underline decoration-blue-400 decoration-2 underline-offset-4">ahmad</span>{" "}
+                    <span className="italic">sheikh-khalil</span>
                   </h1>
                   
                   {/* Social Links */}
@@ -130,7 +132,7 @@ const Index = () => {
                 
                 {/* Pronunciation */}
                 <div className="flex flex-col space-y-1">
-                  <p className={`text-sm italic ${
+                  <p className={`text-sm italic font-medium ${
                     isDark ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     /ˈɑːməd ʃeɪk kəˈliːl/
@@ -140,31 +142,31 @@ const Index = () => {
             </div>
 
             <div className="text-center space-y-2">
-              <p className={`text-lg font-medium ${
-                isDark ? 'text-orange-400' : 'text-orange-600'
+              <p className={`text-lg font-bold ${
+                isDark ? 'text-blue-400' : 'text-blue-600'
               }`}>
-                cs @ umich
+                <span className="italic underline decoration-blue-500 decoration-2">cs</span> @ <span className="font-black">umich</span>
               </p>
-              <div className="h-1 w-24 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 mx-auto rounded-full"></div>
+              <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 mx-auto rounded-full"></div>
             </div>
 
-            <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-center ${
+            <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-center font-medium ${
               isDark ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              passionate about building meaningful digital experiences. 
-              i love creating innovative solutions that blend technology with human-centered design.
+              <span className="italic">passionate</span> about building <span className="font-bold underline decoration-blue-400 decoration-2">meaningful digital experiences</span>. 
+              i love creating <span className="font-black">innovative solutions</span> that blend technology with <span className="italic">human-centered design</span>.
             </p>
           </div>
 
           {/* Projects Section */}
           <div className="w-full max-w-6xl space-y-12">
-            <h2 className="text-2xl md:text-3xl font-light text-center">projects</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-center italic">projects</h2>
             
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               {/* Currently Building */}
               <div className="space-y-6">
-                <h3 className={`text-lg font-medium text-center ${
-                  isDark ? 'text-orange-400' : 'text-orange-600'
+                <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
+                  isDark ? 'text-blue-400 decoration-blue-400' : 'text-blue-600 decoration-blue-600'
                 }`}>
                   currently building
                 </h3>
@@ -182,8 +184,8 @@ const Index = () => {
 
               {/* Personal Projects */}
               <div className="space-y-6">
-                <h3 className={`text-lg font-medium text-center ${
-                  isDark ? 'text-pink-400' : 'text-pink-600'
+                <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
+                  isDark ? 'text-indigo-400 decoration-indigo-400' : 'text-indigo-600 decoration-indigo-600'
                 }`}>
                   personal projects
                 </h3>
@@ -202,11 +204,11 @@ const Index = () => {
           </div>
 
           {/* Contact Info */}
-          <div className={`text-center space-y-2 ${
+          <div className={`text-center space-y-2 font-medium ${
             isDark ? 'text-gray-400' : 'text-gray-600'
           }`}>
-            <p className="text-sm">available for opportunities</p>
-            <p className="text-sm">let's build something together</p>
+            <p className="text-sm italic">available for opportunities</p>
+            <p className="text-sm font-bold">let's build something together</p>
           </div>
         </div>
       </div>
