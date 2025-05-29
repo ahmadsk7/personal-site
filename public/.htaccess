@@ -1,0 +1,10 @@
+AddType application/javascript .js
+AddType application/javascript .mjs
+
+<IfModule mod_headers.c>
+    Header set Content-Type "application/javascript" for "*.js"
+    Header set Content-Type "application/javascript" for "*.mjs"
+</IfModule>
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*" 
