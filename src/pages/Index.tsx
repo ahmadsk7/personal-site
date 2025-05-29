@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
@@ -50,8 +49,8 @@ const Index = () => {
   return (
     <div className={`min-h-screen transition-colors duration-300 font-inter ${
       isDark 
-        ? 'bg-gradient-to-br from-purple-900 via-blue-900 to-teal-800 text-gray-100' 
-        : 'bg-gradient-to-br from-purple-100 via-blue-100 to-teal-50 text-gray-900'
+        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-gray-100' 
+        : 'bg-gradient-to-br from-purple-200 via-blue-200 to-teal-200 text-gray-900'
     }`}>
       {/* Theme Toggle */}
       <div className="fixed top-6 right-6 z-10">
@@ -75,7 +74,7 @@ const Index = () => {
             <div className="flex items-center space-x-8">
               {/* Profile Picture */}
               <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 p-1">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white p-1">
                   <img 
                     src="/lovable-uploads/251a1875-33e9-4396-be4d-ecc791aebfe9.png"
                     alt="ahmad sheikh-khalil"
