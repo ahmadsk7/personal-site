@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, FileText, Sun, Moon, Twitter } from "lucide-react";
+import { Github, Linkedin, Sun, Moon, Twitter } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
 import Terminal from "../components/Terminal";
 
@@ -147,18 +147,6 @@ const Index = () => {
                     }`}
                   >
                     <Twitter size={24} />
-                  </a>
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-green-400 backdrop-blur-sm' 
-                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-green-600 shadow-md hover:shadow-lg backdrop-blur-sm'
-                    }`}
-                  >
-                    <FileText size={24} />
                   </a>
                 </div>
               </div>
