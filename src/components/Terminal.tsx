@@ -19,7 +19,7 @@ const Terminal = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-black/90 rounded-lg p-6 font-mono text-sm md:text-base shadow-[0_0_15px_rgba(0,255,0,0.2)]">
+    <div className="w-full max-w-2xl mx-auto bg-black border border-[#00ff00] p-6 font-mono text-sm md:text-base">
       {terminalText.map((item, lineIndex) => (
         <div
           key={lineIndex}

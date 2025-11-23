@@ -21,6 +21,8 @@ export default {
 		extend: {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
+				'pixel': ['VT323', 'monospace'],
+				'pixel-small': ['Press Start 2P', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

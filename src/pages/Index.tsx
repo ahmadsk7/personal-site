@@ -1,17 +1,10 @@
-import { useState } from "react";
-import { Github, Linkedin, Sun, Moon, Twitter } from "lucide-react";
-import ProjectCard from "../components/ProjectCard";
-import Terminal from "../components/Terminal";
+import { Github, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
+import CustomCursor from "../components/CustomCursor";
+import FloatingParticles from "../components/FloatingParticles";
 
 const Index = () => {
-  const [isDark, setIsDark] = useState(true);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
-  };
-
-  const currentProjects = [
+  const projects = [
     {
       title: "hooked",
       description: "building an AI-powered video editing assistant that helps creators find their best moments, polish audio, and generate impactful captions",
@@ -23,10 +16,13 @@ const Index = () => {
       description: "working on a platform for exploring and analyzing U.S. civil litigation data with smart case summaries, docket timelines, and legal analytics",
       tech: ["next.js", "python", "whisper", "postgresql", "supabase", "openai", "chart.js"],
       status: "in progress"
-    }
-  ];
-
-  const personalProjects = [
+    },
+    {
+      title: "websitecloner",
+      description: "minimal AI-powered web app to clone public websites using LLMs and design scraping",
+      tech: ["next.js", "typescript", "python", "fastapi", "claude", "gpt"],
+      link: "https://github.com/ahmadsk7/websiteCloner"
+    },
     {
       title: "olowrapped",
       description: "spotify wrapped for restaurants — created an OloLLM and used snowflake data to generate personalized guest summaries. provided as a feature to thousands of restaurants as part of olo's engage suite",
@@ -49,175 +45,116 @@ const Index = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 font-bold ${
-      isDark 
-        ? "text-gray-100" 
-        : "text-gray-900"
-    }`}>
-      {/* Theme Toggle */}
-      <div className="fixed top-6 right-6 z-10">
-        <button
-          onClick={toggleTheme}
-          className={`p-4 rounded-full transition-all duration-300 hover:scale-110 ${
-            isDark 
-              ? 'bg-gray-800/50 hover:bg-gray-700/50 text-yellow-400 backdrop-blur-sm' 
-              : 'bg-white/50 hover:bg-gray-100/50 text-gray-700 shadow-lg backdrop-blur-sm'
-          }`}
-        >
-          {isDark ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
-      </div>
-
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col items-center space-y-12">
-          {/* Profile Section */}
-          <div className="flex flex-col items-center space-y-8">
-            {/* Header with Profile Picture, Name and Social Icons */}
-            <div className="flex items-center space-x-8">
-              {/* Profile Picture */}
-              <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white p-1">
-                  <img 
-                    src="/lovable-uploads/251a1875-33e9-4396-be4d-ecc791aebfe9.png"
-                    alt="ahmad sheikh-khalil"
-                    className="w-full h-full rounded-full object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Name, Pronunciation, University, and Social Icons */}
-              <div className="flex flex-col space-y-4">
-                <h1 className="text-3xl md:text-5xl font-black tracking-tight">
-                  <span className="underline decoration-blue-400 decoration-2 underline-offset-4">ahmad</span>{" "}
-                  <span className="italic">sheikh-khalil</span>
-                </h1>
-
-                {/* Pronunciation */}
-                <div className="flex flex-col space-y-1">
-                  <p className={`text-base italic font-medium ${
-                    isDark ? 'text-gray-400' : 'text-gray-600'
-                  }`}>
-                    /ˈɑːməd ʃeɪk kəˈliːl/
-                  </p>
-                </div>
-
-                {/* University Info */}
-                <div className="text-left space-y-2">
-                  <p className={`text-lg font-bold ${
-                    isDark ? 'text-blue-300' : 'text-blue-800'
-                  }`}>
-                    <span className="italic underline decoration-blue-500 decoration-2">cs</span> @ <span className="font-black">umich</span>
-                  </p>
-                </div>
-                
-                {/* Social Links */}
-                <div className="flex space-x-4 mt-2">
-                  <a
-                    href="https://github.com/ahmadsk7"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white backdrop-blur-sm' 
-                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-gray-900 shadow-md hover:shadow-lg backdrop-blur-sm'
-                    }`}
-                  >
-                    <Github size={24} />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/ahmad-sheikh-khalil"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
-                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
-                    }`}
-                  >
-                    <Linkedin size={24} />
-                  </a>
-                  <a
-                    href="https://twitter.com/_ahmadsk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                      isDark 
-                        ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-blue-400 backdrop-blur-sm' 
-                        : 'bg-white/50 hover:bg-gray-50/50 text-gray-600 hover:text-blue-600 shadow-md hover:shadow-lg backdrop-blur-sm'
-                    }`}
-                  >
-                    <Twitter size={24} />
-                  </a>
-                </div>
+    <div className="min-h-screen bg-black text-gray-200 font-mono">
+      <CustomCursor />
+      <FloatingParticles />
+      <div className="max-w-4xl mx-auto px-4 py-12 relative z-10">
+        <div className="space-y-12">
+          {/* Header */}
+          <div>
+            <div className="flex items-center gap-4 mb-2 flex-wrap">
+              <h1 className="text-4xl font-pixel text-[#00ff00]">
+                ahmad sheikh-khalil
+              </h1>
+              <div className="flex gap-3">
+                <a
+                  href="https://github.com/ahmadsk7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00ff00] transition-colors duration-100"
+                >
+                  <Github size={20} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/ahmad-sheikh-khalil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00ff00] transition-colors duration-100"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a
+                  href="https://twitter.com/_ahmadsk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00ff00] transition-colors duration-100"
+                >
+                  <Twitter size={20} />
+                </a>
               </div>
             </div>
-
-            <div className="text-center space-y-2">
-              <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 mx-auto rounded-full"></div>
-            </div>
-
-            <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-center font-medium ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            }`}>
-              interested in creating <span className="font-bold underline decoration-blue-400 decoration-2">tech for social impact</span>. i love working on creative, <span className="italic">human-centered</span> projects and sometimes explore ideas through cinematography, editing, and design.
+            <p className="text-gray-400 text-sm italic">
+              /ˈɑːməd ʃeɪk kəˈliːl/
             </p>
           </div>
 
-          {/* Terminal Section */}
-          <Terminal />
+          {/* About Section - Dictionary Style */}
+          <div>
+            <div className="border-l-2 border-[#00ff00] pl-4 mb-4">
+              <h2 className="text-[#00ff00] font-pixel text-xl mb-2">about</h2>
+            </div>
+            <div className="space-y-1 text-gray-300 text-sm leading-relaxed">
+              <p>• grew up in monroe, la</p>
+              <p>• current student @ umich</p>
+              <p>• prev engineer @ olo</p>
+              <p>• prev engineer @ orchids (ycw25) - grew it to 50k users</p>
+              <p>• see here for <Link to="/creative" className="text-[#00ff00] hover:underline">creative</Link></p>
+              <p>• see here for <Link to="/writing" className="text-[#00ff00] hover:underline">writing</Link></p>
+            </div>
+          </div>
 
-          {/* Projects Section */}
-          <div className="w-full max-w-6xl space-y-12">
-            <h2 className="text-2xl md:text-3xl font-black text-center italic">projects</h2>
-            
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-              {/* Currently Building */}
-              <div className="space-y-6">
-                <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
-                  isDark ? 'text-blue-300 decoration-blue-300' : 'text-blue-800 decoration-blue-800'
-                }`}>
-                  currently building
-                </h3>
-                <div className="space-y-4">
-                  {currentProjects.map((project, index) => (
-                    <ProjectCard 
-                      key={index} 
-                      project={project} 
-                      isDark={isDark}
-                      isCurrent={true}
-                    />
-                  ))}
-                </div>
+          {/* Projects Section - Box Drawn */}
+          <div>
+            <div className="border border-[#00ff00] p-6">
+              <div className="font-pixel text-[#00ff00] text-lg mb-6 border-b border-[#00ff00] pb-2">
+                projects
               </div>
-
-              {/* Personal Projects */}
-              <div className="space-y-6">
-                <h3 className={`text-lg font-bold text-center italic underline decoration-2 ${
-                  isDark ? 'text-indigo-300 decoration-indigo-300' : 'text-indigo-800 decoration-indigo-800'
-                }`}>
-                  personal projects
-                </h3>
-                <div className="space-y-4">
-                  {personalProjects.map((project, index) => (
-                    <ProjectCard 
-                      key={index} 
-                      project={project} 
-                      isDark={isDark}
-                      isCurrent={false}
-                    />
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="border-l-2 border-gray-800 pl-4 hover:border-[#00ff00] transition-colors duration-100"
+                  >
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-[#00ff00] font-pixel text-base">
+                        [{index + 1}] {project.title}
+                        {project.status && <span className="text-gray-400 text-xs ml-2">({project.status})</span>}
+                      </h3>
+                      {project.badge && (
+                        <span className="text-xs text-[#00ff00] border border-[#00ff00] px-2 py-1 font-mono">
+                          {project.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-300 text-sm mb-2 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="text-xs text-gray-400 border border-gray-800 px-2 py-1 font-mono"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-[#00ff00] hover:underline mt-2 inline-block"
+                      >
+                        → view
+                      </a>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Contact Info */}
-          <div className={`text-center space-y-2 font-medium ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          }`}>
-            <p className="text-sm italic">available for opportunities</p>
-            <p className="text-sm font-bold">let's build something together</p>
-          </div>
         </div>
       </div>
     </div>
